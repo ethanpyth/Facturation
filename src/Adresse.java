@@ -4,7 +4,7 @@ public class Adresse {
     private String cellule;
     private String quartier;
 
-    public String getAvenue(String hw) {
+    public String getAvenue() {
         return avenue;
     }
 
