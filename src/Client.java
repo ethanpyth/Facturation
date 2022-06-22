@@ -7,4 +7,12 @@ public class Client extends Person {
         this.setAdresse(adresse);
         this.numero = numero;
     }
+
+    @Override
+    public String toString() {
+        return "Nom : " + this.getNom() +
+                "\nPrenom : " + this.getPrenom() +
+                "\nAdresse : " + this.getAdresse().getAvenue() +
+                "\nNumero : " + numero;
+    }
 }

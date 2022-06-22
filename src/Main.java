@@ -23,27 +23,31 @@ public class Main  {
 
         Product<String> p = new Product<>();
         p.setCode("01");
+        p.setUniteMesure("Chaîne");
         p.setDesignation("Biscuit");
         p.setPrix(20);
         p.setDateExpiration(new Date());
 
         Product<String> p1 = new Product<>();
-        p.setCode("02");
-        p.setDesignation("Pomme");
-        p.setPrix(30);
-        p.setDateExpiration(new Date());
+        p1.setCode("02");
+        p1.setUniteMesure("Chaîne");
+        p1.setDesignation("Pomme");
+        p1.setPrix(30);
+        p1.setDateExpiration(new Date());
 
         Ligne l = new Ligne();
         l.setNumero(1);
         l.setProduit(p);
         l.setQuantite(3);
 
-        Ligne l1 = new Ligne();
-        l.setNumero(2);
-        l.setProduit(p1);
-        l.setQuantite(4);
+        //System.out.println(l);
 
-        List<Ligne> liste = new ArrayList();
+        Ligne l1 = new Ligne();
+        l1.setNumero(2);
+        l1.setProduit(p1);
+        l1.setQuantite(4);
+
+        List<Ligne> liste = new ArrayList<>();
         liste.add(l);
         liste.add(l1);
 
@@ -52,7 +56,7 @@ public class Main  {
 
         Facture fac = new Facture(01, cl, det);
 
-
+        System.out.println(fac);
 
     }
 

@@ -32,4 +32,12 @@ public abstract class DocumentCommercial {
     public abstract double getTotal();
 
     public abstract double getTVA();
+
+    @Override
+    public String toString() {
+        return "*** Facture ***\n\n" +
+                "Numero : " + numero +
+                "\n\n*** Client ***\n\n" +
+                client.toString() + "\n\n" + "*** Détail ***\n\n" + detail.toString();
+    }
 }
