@@ -4,19 +4,7 @@ public class Adresse {
     private String cellule;
     private String quartier;
 
-    public Adresse(String numero, String avenue, String cellule, String quartier, String commune, String ville, String pays) {
-        this.numero = numero;
-        this.avenue = avenue;
-        this.cellule = cellule;
-        this.quartier = quartier;
-        this.commune = commune;
-        this.ville = ville;
-        this.pays = pays;
-    }
-
-    public Adresse(){}
-
-    public String getAvenue(String hw) {
+    public String getAvenue() {
         return avenue;
     }
 
@@ -70,17 +58,6 @@ public class Adresse {
 
     public void setPays(String pays) {
         this.pays = pays;
-    }
-
-    @Override
-    public String toString() {
-        return "Numero : " + this.numero +
-                "Avenue : " + this.avenue +
-                "Cellule : " + this.cellule +
-                "Quartier : " + this.quartier +
-                "Commune : " + this.commune +
-                "Ville : " + this.ville +
-                "Pays : " + this.pays;
     }
 
     private String commune;

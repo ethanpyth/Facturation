@@ -38,4 +38,9 @@ public class Ligne {
     public double getPrixTotal() {
         return produit.getPrix() * quantite;
     }
+
+    @Override
+    public String toString() {
+        return this.numero + " | " + this.quantite + " | " + produit.getDesignation();
+    }
 }

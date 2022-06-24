@@ -1,12 +1,6 @@
 public abstract class DocumentCommercial {
     private long numero;
 
-    public DocumentCommercial(Long numero, Client client, Detail detail) {
-        this.numero = numero;
-        this.client = client;
-        this.detail = detail;
-    }
-
     public long getNumero() {
         return numero;
     }
@@ -35,15 +29,15 @@ public abstract class DocumentCommercial {
 
     private Detail detail;
 
-    public double getTotal() {
-        double t = 0;
-        for(Ligne i: getDetail().ligne){
-            t += i.getPrixTotal();
-        }
-        return t;
-    }
+    public abstract double getTotal();
 
-    public double getTVA() {
-        return  (getTotal() *16/100) + getTotal();
-    };
+    public abstract double getTVA();
+
+    @Override
+    public String toString() {
+        return "*** Facture ***\n\n" +
+                "Numero : " + numero +
+                "\n\n*** Client ***\n\n" +
+                client.toString() + "\n\n" + "*** Détail ***\n\n" + detail.toString();
+    }
 }

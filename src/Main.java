@@ -1,4 +1,6 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class Main  {
     public static void main(String[] args) {
@@ -13,38 +15,50 @@ public class Main  {
          *  KASONGO MWABILA VELCIA
          *
          */
-        Scanner input = new Scanner(System.in);
 
-        Adresse adresseClient = new Adresse();
-        Scanner quit = new Scanner(System.in);
-        String value;
-        int count = 0;
-        do {
-            count += 1;
 
-            System.out.println("Entrez le nom du client : ");
-            String nomClient = input.next();
-            System.out.println("Entrez le prenom du client : ");
-            String prenom = input.next();
-            Client client = new Client(nomClient, prenom, adresseClient, "1");
+        Adresse adresse = new Adresse();
+        adresse.setAvenue("Hewa Bora");
+        Client cl = new Client("Excellence", "kawej", adresse, "01");
 
-            Detail detailFacture = new Detail();
-            Scanner addProduct = new Scanner(System.in);
-            String addBool;
-            Facture fact = new Facture(count, client, detailFacture);
-            do {
-                System.out.println("Entrez le nom du produit : ");
-                String nomProduit = input.next();
-                Product<mesure.IUnitMesure> produit = new Product<mesure.IUnitMesure>("44", nomProduit, 800);
-                System.out.println("Entrez la quatité : ");
-                int qteProduit = input.nextInt();
-                Ligne ligneFact = new Ligne(qteProduit, produit);
-                detailFacture.ligne.add(ligneFact);
-                System.out.println("Voulez ajouter un autre produit (o pour oui /N pour non) :");
-                addBool = addProduct.next();
-            } while (Objects.equals(addBool, "o"));
-            System.out.println("Entrez O pour continuer et N pour quitter : ");
-            value = input.next();
-        } while (Objects.equals(value, "o"));
+        Product<String> p = new Product<>();
+        p.setCode("01");
+        p.setUniteMesure("Chaîne");
+        p.setDesignation("Biscuit");
+        p.setPrix(20);
+        p.setDateExpiration(new Date());
+
+        Product<String> p1 = new Product<>();
+        p1.setCode("02");
+        p1.setUniteMesure("Chaîne");
+        p1.setDesignation("Pomme");
+        p1.setPrix(30);
+        p1.setDateExpiration(new Date());
+
+        Ligne l = new Ligne();
+        l.setNumero(1);
+        l.setProduit(p);
+        l.setQuantite(3);
+
+        //System.out.println(l);
+
+        Ligne l1 = new Ligne();
+        l1.setNumero(2);
+        l1.setProduit(p1);
+        l1.setQuantite(4);
+
+        List<Ligne> liste = new ArrayList<>();
+        liste.add(l);
+        liste.add(l1);
+
+        Detail det = new Detail();
+        det.ligne = liste;
+
+        Facture fac = new Facture(01, cl, det);
+
+        System.out.println(fac);
+
     }
+
+
 }
