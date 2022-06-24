@@ -1,4 +1,10 @@
 public abstract class Person {
+    public Person(String nom, String prenom, Adresse adresse) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+    }
+
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -15,4 +21,15 @@ public abstract class Person {
     private String prenom;
     private Adresse adresse;
 
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public Adresse getAdresse() {
+        return adresse;
+    }
+
+    public String getNom() {
+        return nom;
+    }
 }

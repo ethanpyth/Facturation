@@ -1,7 +1,22 @@
 import java.util.Date;
 
-public class Product <T> {
+public class Product<T> {
     private String code;
+    private Categorie categorie;
+    public Product(String code, String designation, double prix, Categorie categorie, T uniteMesure, Date dateExpiration){
+        this.code = code;
+        this.designation = designation;
+        this.prix = prix;
+        this.categorie = categorie;
+        this.uniteMesure = uniteMesure;
+        this.dateExpiration = dateExpiration;
+    }
+
+    public Product(String code, String designation, double prix) {
+        this.code = code;
+        this.designation = designation;
+        this.prix = prix;
+    }
 
     public String getCode() {
         return code;
@@ -48,6 +63,12 @@ public class Product <T> {
         return prix;
     }
 
-    public void makeCategorie(Categorie cat) {
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
     }
 }

@@ -1,15 +1,5 @@
 public class Devis extends DocumentCommercial{
-    @Override
-    public double getTotal() {
-        double t = 0;
-        for(Ligne i: getDetail().ligne){
-            t += i.getPrixTotal();
-        }
-        return t;
-    }
-
-    @Override
-    public double getTVA() {
-        return  (getTotal() *16/100) + getTotal();
+    public Devis(Long numero, Client client, Detail detail) {
+        super(numero, client, detail);
     }
 }
