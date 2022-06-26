@@ -25,11 +25,11 @@ public class Ligne {
         this.quantite = quantite;
     }
 
-    public Product getProduit() {
+    public Product<IUnitMesure> getProduit() {
         return produit;
     }
 
-    public void setProduit(Product produit) {
+    public void setProduit(Product<IUnitMesure> produit) {
         this.produit = produit;
     }
 
