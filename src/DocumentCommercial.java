@@ -29,7 +29,13 @@ public abstract class DocumentCommercial {
 
     private Detail detail;
 
-    public abstract double getTotal();
+    public double getTotal() {
+        double t = 0;
+        for(Ligne i: getDetail().ligne){
+            t += i.getPrixTotal();
+        }
+        return t;
+    }
 
     public abstract double getTVA();
 
