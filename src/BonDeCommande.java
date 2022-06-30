@@ -3,15 +3,6 @@ public class BonDeCommande extends DocumentCommercial{
         super(numero, client, detail);
     }
     @Override
-    public double getTotal() {
-        double t = 0;
-        for(Ligne i: getDetail().ligne){
-            t += i.getPrixTotal();
-        }
-        return t;
-    }
-
-    @Override
     public double getTVA() {
         return  (getTotal() *16/100) + getTotal();
     }

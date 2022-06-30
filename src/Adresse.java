@@ -1,8 +1,28 @@
 public class Adresse {
-    private String avenue;
-    private String numero;
-    private String cellule;
-    private String quartier;
+    private static int inNum = 0;
+    private String avenue = "";
+    private String numero = "";
+    private String cellule = "";
+    private String quartier = "";
+
+    public Adresse(String commune, String quartier, String avenue) {
+        setCommune(commune);
+        setQuartier(quartier);
+        setAvenue(avenue);
+        setNumero(String.valueOf(makeNum()));
+        ecrireLigne();
+    }
+
+    public void ecrireLigne() {
+        Fichier f = new Fichier("adresses.csv");
+
+        f.ecrire("\n" + getNumero() + ";" + getAvenue() + ";" + getCellule() + ";" + getQuartier() + ";" + getCommune() + ";" + getVille() + ";" + getPays());
+    }
+
+    public static int makeNum() {
+        inNum += 1;
+        return inNum;
+    }
 
     public String getAvenue() {
         return avenue;
@@ -60,7 +80,7 @@ public class Adresse {
         this.pays = pays;
     }
 
-    private String commune;
-    private String ville;
-    private String pays;
+    private String commune = "";
+    private String ville = "";
+    private String pays = "";
 }
