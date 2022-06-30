@@ -1,3 +1,5 @@
+import fichier.Fichier;
+
 public class Facture extends DocumentCommercial{
     private static long inNum = 0;
     public Facture(Client cl, Detail dt) {
@@ -23,7 +25,7 @@ public class Facture extends DocumentCommercial{
     }
 
     public void ecrireLigne(long num, String dsg, int qte, double prix, double prixtT, double prixTC, String codeClient) {
-        Fichier f = new Fichier("factures.csv");
+        Fichier f = new Fichier("fichier/factures.csv");
 
         f.ecrire("\n" + num + dsg + ";" + qte + ";" + prix + ";" + prixtT + ";" + prixTC + ";" + codeClient);
     }

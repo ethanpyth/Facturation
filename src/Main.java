@@ -17,13 +17,14 @@ public class Main  {
          */
 
         Scanner in = new Scanner(System.in);
-        int nbProduit, qte;
-        double prix;
-        Adresse adresse;
-        String nom, designation;
+
 
         String c;
         do {
+            int nbProduit, qte;
+            double prix;
+            Adresse adresse;
+            String nom, designation;
             System.out.println("*** Données du client ***\n");
             System.out.println("Votre nom : ");
             nom = in.nextLine();
@@ -68,90 +69,6 @@ public class Main  {
 
         } while (Objects.equals(c, "o"));
 
-//        do {
-//            System.out.print("Enetre le nombre de produits : ");
-//            nbProduit = in.nextInt();
-//            in.nextLine();
-//
-//            if (nbProduit < 0) {
-//                System.out.println("Entrez un nombre correct !");
-//            }
-//
-//        }while (nbProduit < 0);
-//
-//        for (int i=0; i<nbProduit; i++) {
-//            System.out.println("*** Données du Client ***\n");
-//            System.out.print("Votre Nom : ");
-//            nom = in.nextLine();
-//            System.out.print("Votre Prenom : ");
-//            String prenom = in.nextLine();
-//            System.out.print("Votre Avenue : ");
-//            String avenue = in.nextLine();
-//            System.out.println("Votre commune : ");
-//            String commune = in.nextLine();
-//            System.out.println("Votre quartier : ");
-//            String quartier = in.nextLine();
-//            adresse = new Adresse(commune, quartier, avenue);
-//
-//            Client cl = new Client(nom, prenom, adresse);
-//
-//            System.out.println("\n*** Données du Produit ***\n");
-//            System.out.print("Designation : ");
-//            designation = in.nextLine();
-//            System.out.print("Quantité : ");
-//            qte = in.nextInt();
-//            in.nextLine();
-//            System.out.print("Prix : ");
-//            prix = in.nextDouble();
-//            in.nextLine();
-//
-//            Product<IUnitMesure> p = new Product<>(designation, prix, new Date());
-//
-//            Ligne l = new Ligne();
-//            l.setNumero(1);
-//            l.setProduit(p);
-//            l.setQuantite(qte);
-//
-//            List<Ligne> lignes = new ArrayList<>();
-//            lignes.add(l);
-//
-//            Detail det = new Detail();
-//            det.ligne = lignes;
-//
-//            Facture fac = new Facture(cl, det);
-//
-//            System.out.println(fac);
-//        }
-
-//        Adresse adresse = new Adresse();
-//        adresse.setAvenue("Hewa Bora");
-//        Client cl = new Client("Excellence", "kawej", adresse, "01");
-//
-//        Product<String> p = new Product<>();
-//        p.setCode("01");
-//        p.setUniteMesure("Chaîne");
-//        p.setDesignation("Biscuit");
-//        p.setPrix(20);
-//        p.setDateExpiration(new Date());
-//
-//        Ligne l = new Ligne();
-//        l.setNumero(1);
-//        l.setProduit(p);
-//        l.setQuantite(3);
-//
-//        // System.out.println(l);
-//
-//        List<Ligne> liste = new ArrayList<>();
-//        liste.add(l);
-//
-//        Detail det = new Detail();
-//        det.ligne = liste;
-//
-//        Facture fac = new Facture(01, cl, det);
-//
-//        System.out.println(fac);
-
-
 //        String[] tab = {"a", "b", "c"};
 //
 //        Fichier f = new Fichier("text.csv");
@@ -172,8 +89,5 @@ public class Main  {
 //        f.ecrire("Je suis un petit fou !");
 //
 //        f.lire();
-
     }
-
-
 }
