@@ -34,9 +34,4 @@ public class Facture extends DocumentCommercial{
         inNum += 1;
         return inNum;
     }
-
-    @Override
-    public double getTVA() {
-        return  (getTotal() *16/100) + getTotal();
-    }
 }

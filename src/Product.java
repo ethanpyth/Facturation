@@ -6,7 +6,23 @@ public class Product <T> {
     private  T uniteMesure;
     private Date dateExpiration;
     private static int inCode = 0;
+
     private String code;
+    private Categorie categorie;
+    public Product(String code, String designation, double prix, Categorie categorie, T uniteMesure, Date dateExpiration){
+        this.code = code;
+        this.designation = designation;
+        this.prix = prix;
+        this.categorie = categorie;
+        this.uniteMesure = uniteMesure;
+        this.dateExpiration = dateExpiration;
+    }
+
+    public Product(String code, String designation, double prix) {
+        this.code = code;
+        this.designation = designation;
+        this.prix = prix;
+    }
 
     public Product(String designation, double prix, Date dateExpiration) {
         this.setCode(String.valueOf(makeCode()));
@@ -68,6 +84,12 @@ public class Product <T> {
         return prix;
     }
 
-    public void makeCategorie(Categorie cat) {
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
     }
 }
