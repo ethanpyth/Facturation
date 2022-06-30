@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Fichier {
     private String chemin;
-    private File file;
+    private final File file;
     private FileWriter fileWriter;
 
     public Fichier(String chemin) {

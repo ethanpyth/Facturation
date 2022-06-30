@@ -1,9 +1,7 @@
 public class Facture extends DocumentCommercial{
     private static long inNum = 0;
     public Facture(Client cl, Detail dt) {
-        setNumero(makeNum());
-        setClient(cl);
-        setDetail(dt);
+        super(makeNum(), cl, dt);
         stocker(dt, cl);
     }
 

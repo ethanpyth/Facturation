@@ -9,6 +9,8 @@ public class Ligne {
         this.produit = produit;
     }
 
+    public Ligne() {}
+
     public int getNumero() {
         return numero;
     }

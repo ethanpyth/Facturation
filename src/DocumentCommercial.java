@@ -1,6 +1,12 @@
 public abstract class DocumentCommercial {
     private long numero;
 
+    public DocumentCommercial(long numero, Client client, Detail detail){
+        this.numero = numero;
+        this.client = client;
+        this.detail = detail;
+    }
+
     public long getNumero() {
         return numero;
     }
@@ -37,7 +43,9 @@ public abstract class DocumentCommercial {
         return t;
     }
 
-    public abstract double getTVA();
+    public double getTVA(){
+        return (getTotal() * 16 / 100) + getTotal();
+    }
 
     @Override
     public String toString() {

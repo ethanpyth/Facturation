@@ -2,7 +2,7 @@ public class Client extends Person {
     private static int inNum = 0;
     private String numero;
 
-    public Client(String nom, String prenom, Adresse adresse, String numero) {
+    public Client(String nom, String prenom, Adresse adresse) {
         super(nom, prenom, adresse);
     }
 

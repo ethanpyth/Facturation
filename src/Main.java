@@ -1,7 +1,6 @@
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import mesure.IUnitMesure;
+
+import java.util.*;
 
 public class Main  {
     public static void main(String[] args) {
@@ -19,62 +18,110 @@ public class Main  {
 
         Scanner in = new Scanner(System.in);
         int nbProduit, qte;
-        Double prix;
+        double prix;
         Adresse adresse;
         String nom, designation;
 
+        String c;
         do {
-            System.out.print("Enetre le nombre de produits : ");
-            nbProduit = in.nextInt();
-            in.nextLine();
-
-            if (nbProduit < 0) {
-                System.out.println("Entrez un nombre correct !");
-            }
-
-        }while (nbProduit < 0);
-
-        for (int i=0; i<nbProduit; i++) {
-            System.out.println("*** Données du Client ***\n");
-            System.out.print("Votre Nom : ");
+            System.out.println("*** Données du client ***\n");
+            System.out.println("Votre nom : ");
             nom = in.nextLine();
-            System.out.print("Votre Prenom : ");
+            System.out.println("Votre prenom : ");
             String prenom = in.nextLine();
-            System.out.print("Votre Avenue : ");
+            System.out.println("Votre avenue : ");
             String avenue = in.nextLine();
+            System.out.println("Votre commune : ");
             String commune = in.nextLine();
+            System.out.println("Votre quartier : ");
             String quartier = in.nextLine();
             adresse = new Adresse(commune, quartier, avenue);
+            Client client = new Client(nom, prenom, adresse);
+            int count = 1;
+            Detail dt;
+            do {
+                System.out.println("*** Données des Produits ***\n");
+                System.out.println("Désignation : ");
+                designation = in.nextLine();
+                System.out.println("Quantité : ");
+                qte = in.nextInt();
+                System.out.println("Prix : ");
+                prix = in.nextDouble();
+                Product<IUnitMesure> produit = new Product<>(designation, prix, new Date());
+                Ligne l = new Ligne();
+                l.setQuantite(qte);
+                l.setNumero(count);
+                l.setProduit(produit);
+                count++;
+                List<Ligne> lignes = new ArrayList<>();
+                lignes.add(l);
+                dt = new Detail();
+                dt.ligne = lignes;
 
-            Client cl = new Client(nom, prenom, adresse);
-
-            System.out.println("\n*** Données du Produit ***\n");
-            System.out.print("Designation : ");
-            designation = in.nextLine();
-            System.out.print("Quantité : ");
-            qte = in.nextInt();
-            in.nextLine();
-            System.out.print("Prix : ");
-            prix = in.nextDouble();
-            in.nextLine();
-
-            Product<String> p = new Product<>(designation, prix, new Date());
-
-            Ligne l = new Ligne();
-            l.setNumero(1);
-            l.setProduit(p);
-            l.setQuantite(qte);
-
-            List<Ligne> lignes = new ArrayList<>();
-            lignes.add(l);
-
-            Detail det = new Detail();
-            det.ligne = lignes;
-
-            Facture fac = new Facture(cl, det);
-
+                System.out.println("Voulez-vous ajouter un produit? (o pour oui et n pour non) ");
+                c = in.next();
+            } while (Objects.equals(c, "o"));
+            Facture fac = new Facture(client, dt);
             System.out.println(fac);
-        }
+            System.out.println("Voulez-vous créer une facture? (o pour oui et n pour non) ");
+            c = in.next();
+
+        } while (Objects.equals(c, "o"));
+
+//        do {
+//            System.out.print("Enetre le nombre de produits : ");
+//            nbProduit = in.nextInt();
+//            in.nextLine();
+//
+//            if (nbProduit < 0) {
+//                System.out.println("Entrez un nombre correct !");
+//            }
+//
+//        }while (nbProduit < 0);
+//
+//        for (int i=0; i<nbProduit; i++) {
+//            System.out.println("*** Données du Client ***\n");
+//            System.out.print("Votre Nom : ");
+//            nom = in.nextLine();
+//            System.out.print("Votre Prenom : ");
+//            String prenom = in.nextLine();
+//            System.out.print("Votre Avenue : ");
+//            String avenue = in.nextLine();
+//            System.out.println("Votre commune : ");
+//            String commune = in.nextLine();
+//            System.out.println("Votre quartier : ");
+//            String quartier = in.nextLine();
+//            adresse = new Adresse(commune, quartier, avenue);
+//
+//            Client cl = new Client(nom, prenom, adresse);
+//
+//            System.out.println("\n*** Données du Produit ***\n");
+//            System.out.print("Designation : ");
+//            designation = in.nextLine();
+//            System.out.print("Quantité : ");
+//            qte = in.nextInt();
+//            in.nextLine();
+//            System.out.print("Prix : ");
+//            prix = in.nextDouble();
+//            in.nextLine();
+//
+//            Product<IUnitMesure> p = new Product<>(designation, prix, new Date());
+//
+//            Ligne l = new Ligne();
+//            l.setNumero(1);
+//            l.setProduit(p);
+//            l.setQuantite(qte);
+//
+//            List<Ligne> lignes = new ArrayList<>();
+//            lignes.add(l);
+//
+//            Detail det = new Detail();
+//            det.ligne = lignes;
+//
+//            Facture fac = new Facture(cl, det);
+//
+//            System.out.println(fac);
+//        }
 
 //        Adresse adresse = new Adresse();
 //        adresse.setAvenue("Hewa Bora");
