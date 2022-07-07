@@ -1,3 +1,5 @@
+import fichier.Fichier;
+
 import java.util.Date;
 
 public class Product <T> {

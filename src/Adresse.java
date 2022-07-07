@@ -1,3 +1,5 @@
+import fichier.Fichier;
+
 public class Adresse {
     private static int inNum = 0;
     private String avenue = "";
