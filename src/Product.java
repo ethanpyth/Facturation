@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 import java.io.File;
 import java.util.ArrayList;
-=======
 import fichier.Fichier;
-
->>>>>>> 706ac1850d7cba95ca70e4bb3951e7a17e8721d0
 import java.util.Date;
 import fichier.Fichier;
 import fichier.ParserFile;
