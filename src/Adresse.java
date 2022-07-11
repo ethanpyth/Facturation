@@ -1,5 +1,8 @@
 import fichier.Fichier;
+<<<<<<< HEAD
+=======
 
+>>>>>>> 706ac1850d7cba95ca70e4bb3951e7a17e8721d0
 public class Adresse {
     private static int inNum = 0;
     private String avenue = "";

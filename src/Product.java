@@ -1,8 +1,12 @@
+import java.io.File;
+import java.util.ArrayList;
 import fichier.Fichier;
-
 import java.util.Date;
+import fichier.Fichier;
+import fichier.ParserFile;
 
 public class Product <T> {
+    private String filePath;
     private String designation;
     private double prix;
     private  T uniteMesure;
@@ -18,12 +22,14 @@ public class Product <T> {
         this.categorie = categorie;
         this.uniteMesure = uniteMesure;
         this.dateExpiration = dateExpiration;
+        this.filePath = "products.csv";
     }
 
     public Product(String code, String designation, double prix) {
         this.code = code;
         this.designation = designation;
         this.prix = prix;
+        this.filePath = "products.csv";
     }
 
     public Product(String designation, double prix, Date dateExpiration) {
@@ -31,7 +37,13 @@ public class Product <T> {
         this.setDesignation(designation);
         this.setPrix(prix);
         this.setDateExpiration(dateExpiration);
+        this.filePath = "products.csv";
         ecrireLigne();
+    }
+
+    public ArrayList<ArrayList<String>> getAll() {
+        ParserFile file = new ParserFile(this.filePath);
+        return file.renderCols();
     }
 
     private static int makeCode() {
@@ -40,8 +52,7 @@ public class Product <T> {
     }
 
     public void ecrireLigne() {
-        Fichier f = new Fichier("products.csv");
-
+        Fichier f = new Fichier(this.filePath);
         f.ecrire("\n" + code + ";" + designation + ";" + prix + ";" + dateExpiration);
     }
     public String getCode() {

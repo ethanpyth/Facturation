@@ -52,6 +52,10 @@ public class Fichier {
         }
     }
 
+    public File getFile() {
+        return file;
+    }
+
     public String getChemin() {
         return chemin;
     }

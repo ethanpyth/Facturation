@@ -2,6 +2,9 @@ NUMERO;AVENUE;CELLULE;QUARTIER;COMMUNE;VILLE;PAYS
 1;Kasongo Nongolola;;;f;;
 1;kasongo;;golf meteo;lubumbashi;;
 1;kasongo;;golf meteo;lubumbashi;;
+<<<<<<< HEAD
+1;Mishindu;;belair;kampemba;;
+=======
 1;Kasongo Nongolola;;Golf Meteo;Lubumbashi;;
 1;Kasongo nongolola;;golf meteo;Lubumbashi;;
 1;Kasongo Nongolola;;golf meteo;Lubumbashi;;
@@ -11,3 +14,4 @@ NUMERO;AVENUE;CELLULE;QUARTIER;COMMUNE;VILLE;PAYS
 1;dmskf;;dklfjq;mdkf;;
 1;jl;;hj;hlkl;;
 1;qsdfq;;dqf;qdsf;;
+>>>>>>> 706ac1850d7cba95ca70e4bb3951e7a17e8721d0
