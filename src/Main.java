@@ -1,6 +1,9 @@
 import mesure.IUnitMesure;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 public class Main  {
     public static void main(String[] args) {
@@ -16,12 +19,31 @@ public class Main  {
          *
          */
 
+        Manager manager = new Manager();
+
+
+
+
+//        String column[] = {"Désignation", "Quantité", "Prix unitaire", "Total"};
+//        JFrame window = new JFrame("Facturation");
+//        window.setLocationRelativeTo(null);
+//        window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//        window.setResizable(false);
+//        window.setVisible(true);
+//        window.setSize(500,400);
+//        window.setLayout(new BorderLayout());
+//        JPanel panel = new JPanel();
+
+
+//        panel.setLayout(new FlowLayout());
+//        window.getContentPane().add(panel);
+//        panel.add(new JLabel("Facture"), BorderLayout.NORTH);
         Scanner in = new Scanner(System.in);
 
-
         String c;
+
         do {
-            int nbProduit, qte;
+            int qte;
             double prix;
             Adresse adresse;
             String nom, designation;
@@ -40,6 +62,7 @@ public class Main  {
             Client client = new Client(nom, prenom, adresse);
             int count = 1;
             Detail dt;
+//            ArrayList<List<Ligne>> dtList = null;
             do {
                 System.out.println("*** Données des Produits ***\n");
                 System.out.println("Désignation : ");
@@ -48,6 +71,7 @@ public class Main  {
                 qte = in.nextInt();
                 System.out.println("Prix : ");
                 prix = in.nextDouble();
+                manager.insert(designation, qte, prix);
                 Product<IUnitMesure> produit = new Product<>(designation, prix, new Date());
                 Ligne l = new Ligne();
                 l.setQuantite(qte);
@@ -58,36 +82,26 @@ public class Main  {
                 lignes.add(l);
                 dt = new Detail();
                 dt.ligne = lignes;
-
+//                assert false;
+//                dtList.add(lignes);
                 System.out.println("Voulez-vous ajouter un produit? (o pour oui et n pour non) ");
                 c = in.next();
             } while (Objects.equals(c, "o"));
+//            String data[][] = (String[][]) dtList;
+            String data[][]={
+                    {"101","Amit","670000"},
+                    {"102","Jai","780000"},
+                    {"101","Sachin","700000"}
+            };
             Facture fac = new Facture(client, dt);
             System.out.println(fac);
+//            JTable facture = new JTable(data, column);
+//            facture.setBounds(10, 10, 400, 400);
+//            JScrollPane sp = new JScrollPane(facture);
+//            content.add(facture);
+//            window.getContentPane().add(sp, BorderLayout.CENTER);
             System.out.println("Voulez-vous créer une facture? (o pour oui et n pour non) ");
             c = in.next();
-
         } while (Objects.equals(c, "o"));
-
-//        String[] tab = {"a", "b", "c"};
-//
-//        Fichier f = new Fichier("text.csv");
-//
-//
-//
-//        for (String e: tab) {
-//            f.ecrire(e);
-//            f.ecrire(";");
-//        }
-//        f.ecrire("\n");
-//
-//        for (String e: tab) {
-//            f.ecrire(e);
-//            f.ecrire(";");
-//        }
-//        f.ecrire("\n");
-//        f.ecrire("Je suis un petit fou !");
-//
-//        f.lire();
     }
 }
