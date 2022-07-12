@@ -10,9 +10,9 @@ public class Manager {
     public Manager(){
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/Facturation",
-                    "root",
-                    ""
+                    "jdbc:postgresql://localhost:5432/postgres",
+                    "postgres",
+                    "1234"
             );
             etat = connection.createStatement();
         } catch (SQLException e) {
