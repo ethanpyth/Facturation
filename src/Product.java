@@ -1,5 +1,6 @@
 import java.io.File;
 import java.util.ArrayList;
+import fichier.Fichier;
 import java.util.Date;
 import fichier.Fichier;
 import fichier.ParserFile;
