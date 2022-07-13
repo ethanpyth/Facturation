@@ -1,5 +1,8 @@
 import fichier.Fichier;
 public class Adresse {
+    private String commune = "";
+    private String ville = "";
+    private String pays = "";
     private static int inNum = 0;
     private String avenue = "";
     private String numero = "";
@@ -80,8 +83,4 @@ public class Adresse {
     public void setPays(String pays) {
         this.pays = pays;
     }
-
-    private String commune = "";
-    private String ville = "";
-    private String pays = "";
 }
