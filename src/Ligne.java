@@ -1,6 +1,8 @@
 import mesure.IUnitMesure;
 
 public class Ligne {
+
+    private Product<IUnitMesure> produit;
     private int numero;
     private int quantite;
 
@@ -34,8 +36,6 @@ public class Ligne {
     public void setProduit(Product<IUnitMesure> produit) {
         this.produit = produit;
     }
-
-    private Product<IUnitMesure> produit;
 
     public double getPrixTotal() {
         return produit.getPrix() * quantite;

@@ -1,4 +1,5 @@
 public class Client extends Person {
+
     private static final int inNum = 0;
     private String numero;
 

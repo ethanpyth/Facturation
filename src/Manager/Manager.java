@@ -1,18 +1,20 @@
+package Manager;
+
 import java.sql.*;
 
-public class Manager {
+public abstract class Manager {
     private Connection connection = null;
     private Statement etat ;
     private String query;
 
     private ResultSet resultSet;
 
-    public Manager(){
+    public Manager(String url, String user, String password){
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/postgres",
-                    "postgres",
-                    "1234"
+                    url,
+                    user,
+                    password
             );
             etat = connection.createStatement();
         } catch (SQLException e) {
